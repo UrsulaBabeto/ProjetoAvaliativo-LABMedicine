@@ -8,7 +8,7 @@ const route = express.Router();
 
 route.post('/api/doctor',addDoctor);
 route.delete('/api/doctor',deleteDoctor);
-route.delete('/api/doctor',updateDoctor);
-route.delete('/api/doctor',findDoctor);
+route.put('/api/doctor',updateDoctor);
+route.get('/api/doctor',findDoctor);
 
 module.exports = route;

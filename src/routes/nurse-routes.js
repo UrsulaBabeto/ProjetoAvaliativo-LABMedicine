@@ -9,7 +9,7 @@ const route = express.Router();
 
 route.post('/api/nurse',addNurse);
 route.delete('/api/nurse',deleteNurse);
-route.delete('/api/nurse',updateNurse);
-route.delete('/api/nurse',findNurse);
+route.put('/api/nurse',updateNurse);
+route.get('/api/nurse',findNurse);
 
 module.exports = route;

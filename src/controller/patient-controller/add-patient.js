@@ -1,17 +1,36 @@
-const addPatient = async(req,res)=>{
-    try {
-        
-    } catch (error) {
-        
-    }
-}
+const Patient = require("../../model/patient-model");
+
+const addPatient = async (req, res) => {
+  try {
+    const patientDb = await Patient.findOne({
+        where: {
+          cpf: req.body.cpf,
+        },
+      });
+  
+      if (patientDb) return res.status(409).json({ message: "CPF ja cadastrado" });
+
+    const patient = await {
+      full_name: req.body.full_name,
+      gender: req.body.gender,
+      birth_date: req.body.birth_date,
+      cpf: req.body.cpf,
+      phone_number: req.body.phone_number,
+      emergency_phone: req.body.emergency_phone,
+      allergies: req.body.allergies,
+      special_care: req.body.special_care,
+      health_insurance: req.body.health_insurance,
+      status: req.body.status,
+    };
+    const newPatient = await Patient.create(patient);
+    const { id,status, ...rest } = newPatient.toJSON();
+
+    res.status(201).json({identificador: id, atendimentos: status, patient:rest });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Erro de Servidor " });
+  }
+};
 
 module.exports = addPatient;
 
-/* No corpo da request, informar objeto json com os campos
-Todos os campos obrigatórios devem ser validados. O CPF deve ser único por paciente. Validar se o CPF informado já foi cadastrado no sistema.
-Response:
-HTTP Status Code 201 (CREATED) em caso de sucesso, constando no corpo da resposta o código atribuído ao novo paciente cadastrado, além dos demais campos. No response, retornar os campos adicionais “identificador” e “atendimentos”, usando obrigatoriamente estes nomes para os campos.
-HTTP Status Code 400 (Bad Request) em caso de requisição com dados inválidos, informando mensagem de erro explicativa no corpo do response. 
-HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado, informando mensagem de erro explicativa no corpo do response. 
- */

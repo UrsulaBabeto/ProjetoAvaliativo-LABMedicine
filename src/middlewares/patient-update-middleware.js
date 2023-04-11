@@ -7,15 +7,12 @@ const schema = yup.object().shape({
   birth_date: yup
     .date("Verifique o tipo de entrada, este campo requer uma data")
     .required("Data de nascimento obrigatória"),
-  cpf: yup
-    .string()
-    .required("CPF obrigatório"),
   emergency_phone: yup
     .string()
     .required("Por favor informe o contato de emergencia"),
 });
 
-const patientSecure = (req, res, next) => {
+const patientUpdateSecure = (req, res, next) => {
   try {
     schema.validateSync(req.body);
     next();
@@ -24,4 +21,4 @@ const patientSecure = (req, res, next) => {
   }
 };
 
-module.exports = patientSecure;
+module.exports = patientUpdateSecure;

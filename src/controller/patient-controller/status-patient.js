@@ -2,13 +2,14 @@ const statusPatient = async(req,res)=>{
     try {
         
     } catch (error) {
-        
+        console.log(error)
+        return res.status(500).json({message:'Erro de Servidor '}); 
     }
 }
 
 module.exports = statusPatient;
 /* 
-HTTP PUT no path /api/pacientes/{identificador}/status
+
 No corpo da request, informar objeto json com os campos.
 O campo deve ser validado como sendo obrigatório e pertencente aos valores possíveis para este campo.
 Response:
