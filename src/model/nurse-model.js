@@ -8,10 +8,13 @@ const Nurse = connection.define("nurse", {
     autoIncrement: true,
     allowNull: false,
   },
-  full_name: Sequelize.STRING,
+  full_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   gender: Sequelize.STRING,
   birth_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     allowNull: false,
   },
   cpf: {
@@ -23,7 +26,7 @@ const Nurse = connection.define("nurse", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  cofen_uf: {
+  coren_uf: {
     type: Sequelize.STRING,
     allowNull: false,
   },

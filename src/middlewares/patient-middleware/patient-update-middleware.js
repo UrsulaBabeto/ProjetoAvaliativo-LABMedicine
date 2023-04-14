@@ -4,7 +4,8 @@ const schema = yup.object().shape({
   full_name: yup
      .string()
     .required("Nome completo obrigatório"),
-  birth_date: yup
+    cpf: yup.string(),
+    birth_date: yup
     .date("Verifique o tipo de entrada, este campo requer uma data")
     .required("Data de nascimento obrigatória"),
   emergency_phone: yup

@@ -27,7 +27,6 @@ const addPatient = async (req, res) => {
 
     res.status(201).json({identificador: id, atendimentos: status, patient:rest });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: "Erro de Servidor " });
   }
 };

@@ -13,9 +13,9 @@ const Patient = connection.define("patient", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  gender: Sequelize.STRING,
+  gender: Sequelize.ENUM("FEMININO", "MASCULINO"),
   birth_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     allowNull: false,
   },
   cpf: {
@@ -31,13 +31,17 @@ const Patient = connection.define("patient", {
   special_care: Sequelize.STRING,
   health_insurance: Sequelize.STRING,
   status: {
-    type: Sequelize.ENUM("waiting", "in_care", "taken_care", "no_care"),
+    type: Sequelize.ENUM(
+      "EM_ATENDIMENTO",
+      "AGUARDANDO_ATENDIMENTO",
+      "ATENDIDO",
+      "NAO_ATENDIDO"
+    ),
+  },
+  total_attendance: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
 });
 
 module.exports = Patient;
-
-/* 
-  Place.belongsTo(User,{foreignKey:'user_id'})
-Total de atendimentos realizados.
-Este item é um contador que inicia em zero. Sempre que um médico realiza um atendimento este valor deve ser incrementado. */

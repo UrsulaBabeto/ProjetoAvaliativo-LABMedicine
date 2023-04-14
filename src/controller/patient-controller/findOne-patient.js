@@ -1,6 +1,6 @@
 const Patient = require("../../model/patient-model");
 
-const findPatient = async (req, res) => {
+const findOnePatient = async (req, res) => {
   try {
     const patient = await Patient.findByPk(req.params.id);
 
@@ -9,11 +9,10 @@ const findPatient = async (req, res) => {
 
     res.status(200).json(patient);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: "Erro de Servidor " });
   }
 };
 
-module.exports = findPatient;
+module.exports = findOnePatient;
 
 

@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
+
 const connection = require("../connection/connection");
 
 const Doctor = connection.define("doctor", {
@@ -8,10 +9,13 @@ const Doctor = connection.define("doctor", {
     autoIncrement: true,
     allowNull: false,
   },
-  full_name: Sequelize.STRING,
+  full_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   gender: Sequelize.STRING,
   birth_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     allowNull: false,
   },
   cpf: {
@@ -30,18 +34,26 @@ const Doctor = connection.define("doctor", {
   specialization: {
     type: DataTypes.ENUM,
     values: [
-      "Clínico_Geral",
-      "Anestesista",
-      "Dermatologia",
-      "Ginecologia",
-      "Neurologia",
-      "Pediatria",
-      "Psiquiatria",
-      "Ortopedia",
+      "CLINICO-GERAL",
+      "ANESTESISTA",
+      "DERMATOLOGIA",
+      "GINECOLOGIA",
+      "NEUROLOGIA",
+      "PEDIATRIA",
+      "PSIQUIATRIA",
+      "ORTOPEDIA",
     ],
     allowNull: false,
   },
-  system_status: DataTypes.ENUM("active", "inactive"),
+  system_status: { 
+    type: Sequelize.ENUM("ATIVO","INATIVO"), 
+    defaultValue: "ATIVO",
+    allowNull: false, 
+  },  
+  total_attendance: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
+  },
 });
 
 module.exports = Doctor;
