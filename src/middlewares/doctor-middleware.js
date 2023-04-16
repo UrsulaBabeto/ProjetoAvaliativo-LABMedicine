@@ -2,20 +2,27 @@ const yup = require("yup");
 
 const schema = yup.object().shape({
   full_name: yup
-     .string()
+    .string()
     .required("Nome completo obrigatório"),
   birth_date: yup
     .date("Verifique o tipo de entrada, este campo requer uma data")
     .required("Data de nascimento obrigatória"),
-  cpf: yup
+    cpf: yup.string(),
+    college: yup
     .string()
-    .required("CPF obrigatório"),
-  emergency_phone: yup
+    .required("Instituição de Ensino obrigatória"),
+  crm: yup
     .string()
-    .required("Por favor informe o contato de emergencia"),
+    .required("CRM obrigatório"),
+  specialization: yup
+    .string()
+    .required("informe sua profissão(especialidade)"),
+  system_status: yup
+    .boolean()
+    .required("Informe se o medico esta ativo ou inativo"),
 });
 
-const patientSecure = (req, res, next) => {
+const doctorSecure = (req, res, next) => {
   try {
     schema.validateSync(req.body);
     next();
@@ -24,4 +31,4 @@ const patientSecure = (req, res, next) => {
   }
 };
 
-module.exports = patientSecure;
+module.exports = doctorSecure;

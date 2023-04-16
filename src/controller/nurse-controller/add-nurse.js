@@ -24,10 +24,4 @@ const addNurse = async (req, res) => {
 };
 
 module.exports = addNurse;
-/* No corpo da request, informar objeto json com os campos
-Todos os campos obrigatórios devem ser validados. O CPF deve ser único por enfermeiro. Validar se o CPF 
-informado já foi cadastrado no sistema.
 
-HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado, informando mensagem de erro explicativa no corpo
- do response. 
- */

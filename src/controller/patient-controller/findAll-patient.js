@@ -3,7 +3,7 @@ const Patient = require("../../model/patient-model");
 const findAllPatient = async (req, res) => {
   try {
     let patients;
-    const queryFilter = req.query.status.toUpperCase();
+    const queryFilter = req.query.status;
     const statusCode = [
       "EM_ATENDIMENTO",
       "AGUARDANDO_ATENDIMENTO",

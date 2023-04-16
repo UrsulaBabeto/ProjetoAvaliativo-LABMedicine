@@ -7,8 +7,7 @@ const findOnePatient = require("../controller/patient-controller/findOne-patient
 const findAllPatient = require("../controller/patient-controller/findAll-patient");
 const statusPatient = require("../controller/patient-controller/status-patient");
 
-const patientSecure = require("../middlewares/patient-middleware/patient-middleware");
-const patientUpdateSecure = require("../middlewares/patient-middleware/patient-update-middleware");
+const patientSecure = require("../middlewares/patient-middleware");
 
 const route = express.Router();
 
@@ -16,7 +15,7 @@ route.post("/api/paciente", patientSecure, addPatient);
 route.get("/api/paciente/:id", findOnePatient);
 route.get("/api/paciente", findAllPatient);
 route.put("/api/paciente/:id/status", statusPatient);
-route.put("/api/paciente/:id", patientUpdateSecure, updatePatient);
+route.put("/api/paciente/:id", patientSecure, updatePatient);
 route.delete("/api/paciente/:id", deletePatient);
 
 module.exports = route;

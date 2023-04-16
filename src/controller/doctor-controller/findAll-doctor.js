@@ -3,7 +3,7 @@ const Doctor = require("../../model/doctor-model");
 const findAllDoctors = async (req, res) => {
   try {
     let doctor;
-    const queryFilter = req.query.system_status.toUpperCase();
+    const queryFilter = req.query.system_status;
     const statusCode = ["ATIVO", "INATIVO"];
 
     if (!queryFilter) {
@@ -24,6 +24,7 @@ const findAllDoctors = async (req, res) => {
 
     res.status(200).json(doctor);
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ message: "Erro de Servidor " });
   }
 };

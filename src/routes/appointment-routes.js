@@ -1,8 +1,8 @@
 const express = require('express');
-const appointment = require('../controller/appointment-controller/appointment-pacient-doctor');
+const appointment = require('../controller/appointment-controller/appointment-controller');
 
 const route = express.Router();
 
-route.put("/api/appointment",  appointment);
+route.put("/api/atendimentos",  appointment);
 
 module.exports = route;

@@ -1,6 +1,7 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize } = require("sequelize");
 
 const connection = require("../connection/connection");
+const Appointment = require("./appointment-model");
 
 const Doctor = connection.define("doctor", {
   id: {
@@ -32,7 +33,7 @@ const Doctor = connection.define("doctor", {
     allowNull: false,
   },
   specialization: {
-    type: DataTypes.ENUM,
+    type: Sequelize.ENUM,
     values: [
       "CLINICO-GERAL",
       "ANESTESISTA",
@@ -54,6 +55,10 @@ const Doctor = connection.define("doctor", {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
-});
+},
+{ timestamps: false }
+);
+
+//Doctor.belongsToMany(require("./patient-model"), { through: Appointment });
 
 module.exports = Doctor;

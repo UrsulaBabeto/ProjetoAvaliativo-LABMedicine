@@ -4,7 +4,7 @@ const updateNurse = async (req, res) => {
   try {
     const nurseDb = await Nurse.findByPk({ where: { id: req.params.id } });
     if (!nurseDb) {
-      return res.status(404).json({ message: "Paciente não encontrado" });
+      return res.status(404).json({ message: "Enfermeiro não encontrado" });
     }
           nurseDb.full_name=req.body.full_name || nurseDb.full_name,
           nurseDb.gender=req.body.gender,

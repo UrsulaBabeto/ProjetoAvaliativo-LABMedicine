@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 const connection = require("../connection/connection");
+const Appointment = require("./appointment-model");
 
 const Patient = connection.define("patient", {
   id: {
@@ -13,7 +14,7 @@ const Patient = connection.define("patient", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  gender: Sequelize.ENUM("FEMININO", "MASCULINO"),
+  gender: Sequelize.STRING,
   birth_date: {
     type: Sequelize.DATEONLY,
     allowNull: false,
@@ -42,6 +43,10 @@ const Patient = connection.define("patient", {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
-});
+},
+{ timestamps: false }
+);
+
+Patient.belongsToMany(require("./doctor-model"), { through: Appointment });
 
 module.exports = Patient;
