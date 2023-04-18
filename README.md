@@ -1,4 +1,4 @@
-# Api para Clinicas Médicas
+# LABMedicine -Api para Clinicas Médicas 
 
 > API Rest criado com funcionalidades básicas e essenciais (MVP) para
 > o gerenciamento e automação nos atendimentos de algumas entidades
