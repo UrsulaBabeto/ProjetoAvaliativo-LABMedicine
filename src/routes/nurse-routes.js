@@ -10,10 +10,10 @@ const nurseSecure = require("../middlewares/nurse-middleware");
 
 const route = express.Router();
 
-route.post("/api/enfermeira", nurseSecure, addNurse);
-route.delete("/api/enfermeira", deleteNurse);
-route.put("/api/enfermeira/:id", nurseSecure, updateNurse);
-route.get("/api/enfermeira/:id", findOneNurse);
-route.get("/api/enfermeira", findAllNurse);
+route.post("/api/enfermeiros", nurseSecure, addNurse);
+route.get("/api/enfermeiros/:id", findOneNurse);
+route.get("/api/enfermeiros", findAllNurse);
+route.put("/api/enfermeiros/:id", nurseSecure, updateNurse);
+route.delete("/api/enfermeiros", deleteNurse);
 
 module.exports = route;

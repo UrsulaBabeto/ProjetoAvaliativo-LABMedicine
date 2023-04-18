@@ -2,6 +2,7 @@ const Patient = require("../../model/patient-model");
 
 const addPatient = async (req, res) => {
   try {
+    if(!req.body.cpf) return  res.status(400).json({ message: "CPF obrigatório" });
     const patientDb = await Patient.findOne({
         where: {
           cpf: req.body.cpf,

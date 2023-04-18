@@ -9,7 +9,7 @@ const Appointment = connection.define(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-    },
+    },    
   },
   { timestamps: false }
 );

@@ -2,6 +2,8 @@ const { Sequelize } = require("sequelize");
 
 const connection = require("../connection/connection");
 const Appointment = require("./appointment-model");
+const Doctor = require("./doctor-model");
+
 
 const Patient = connection.define("patient", {
   id: {
@@ -9,6 +11,7 @@ const Patient = connection.define("patient", {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
+    unique:true
   },
   full_name: {
     type: Sequelize.STRING,
@@ -39,7 +42,7 @@ const Patient = connection.define("patient", {
       "NAO_ATENDIDO"
     ),
   },
-  total_attendance: {
+  total_appointment: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
@@ -47,6 +50,6 @@ const Patient = connection.define("patient", {
 { timestamps: false }
 );
 
-Patient.belongsToMany(require("./doctor-model"), { through: Appointment });
+Patient.belongsToMany((Doctor), { through: Appointment });
 
 module.exports = Patient;

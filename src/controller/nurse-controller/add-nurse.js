@@ -2,6 +2,7 @@ const Nurse = require("../../model/nurse-model");
 
 const addNurse = async (req, res) => {
   try {
+    if(!req.body.cpf) return  res.status(400).json({ message: "CPF obrigatório" });
     const nurseDb = await Nurse.findOne({ where: { cpf: req.body.cpf } });
     if (nurseDb) return res.status(409).json({ message: "CPF ja cadastrado" });
     const nurse = await {

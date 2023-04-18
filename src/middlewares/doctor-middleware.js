@@ -18,7 +18,7 @@ const schema = yup.object().shape({
     .string()
     .required("informe sua profissão(especialidade)"),
   system_status: yup
-    .boolean()
+    .string()
     .required("Informe se o medico esta ativo ou inativo"),
 });
 

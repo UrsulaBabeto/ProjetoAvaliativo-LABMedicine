@@ -2,6 +2,7 @@ const Doctor = require("../../model/doctor-model");
 
 const addDoctor = async (req, res) => {
   try {
+    if(!req.body.cpf) return  res.status(400).json({ message: "CPF obrigatório" });
     const doctorDb = await Doctor.findOne({ where: { cpf: req.body.cpf } });
     if (doctorDb) return res.status(409).json({ message: "CPF ja cadastrado" });
  
@@ -14,8 +15,7 @@ const addDoctor = async (req, res) => {
       college: req.body.college,
       crm: req.body.crm,
       specialization: req.body.specialization,
-      system_status: req.body.system_status,
-      total_attendance: req.body.total_attendance,
+      system_status: req.body.system_status
     };
 
     const newDoctor = await Doctor.create(doctor);

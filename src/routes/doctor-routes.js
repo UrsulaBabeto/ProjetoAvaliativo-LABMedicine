@@ -11,11 +11,11 @@ const doctorSecure = require("../middlewares/doctor-middleware");
 
 const route = express.Router();
 
-route.post("/api/medico",doctorSecure , addDoctor);
-route.delete("/api/medico/:id", deleteDoctor);
-route.put("/api/medico/:id",doctorSecure , updateDoctor);
-route.put("/api/medico/:id/status", statusDoctor);
-route.get("/api/medico/:id", findOneDoctor);
-route.get("/api/medico", findAllDoctors);
+route.post("/api/medicos",doctorSecure , addDoctor);
+route.get("/api/medicos/:id", findOneDoctor);
+route.get("/api/medicos", findAllDoctors);
+route.put("/api/medicos/:id",doctorSecure , updateDoctor);
+route.put("/api/medicos/:id/status", statusDoctor);
+route.delete("/api/medicos/:id", deleteDoctor);
 
 module.exports = route;

@@ -9,6 +9,7 @@ const Doctor = connection.define("doctor", {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
+    
   },
   full_name: {
     type: Sequelize.STRING,
@@ -51,7 +52,7 @@ const Doctor = connection.define("doctor", {
     defaultValue: "ATIVO",
     allowNull: false, 
   },  
-  total_attendance: {
+  total_appointment: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
