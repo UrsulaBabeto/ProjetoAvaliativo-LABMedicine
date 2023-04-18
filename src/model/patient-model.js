@@ -11,7 +11,6 @@ const Patient = connection.define("patient", {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
-    unique:true
   },
   full_name: {
     type: Sequelize.STRING,
@@ -50,6 +49,6 @@ const Patient = connection.define("patient", {
 { timestamps: false }
 );
 
-Patient.belongsToMany((Doctor), { through: Appointment });
+//Patient.belongsToMany((Doctor), { through: Appointment });
 
 module.exports = Patient;

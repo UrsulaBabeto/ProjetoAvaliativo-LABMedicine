@@ -3,7 +3,7 @@
 > API Rest criado com funcionalidades básicas e essenciais (MVP) para
 > o gerenciamento e automação nos atendimentos de algumas entidades
 > relacionais do setor clínico - pacientes, enfermeiros e médicos.
-> Projeto criado com Javascript, Express e Sequelize
+> Projeto criado com Javascript, Express, Yup e Sequelize
 
 <a href="https://app.swaggerhub.com/apis/URSULACOBABETO/Api_LabMedicine/1.0.0" target="_blank"><img src="https://img.shields.io/badge/{···}-Swagger-<white>" target="_blank"></a>
 

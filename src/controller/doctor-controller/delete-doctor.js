@@ -2,12 +2,13 @@ const Doctor = require("../../model/doctor-model");
 
 const deleteDoctor = async (req, res) => {
   try {
-    await Doctor.destroy({
+   const idDoctor = await Doctor.destroy({
       where: {
         id: req.params.id,
       },
     });
-    if (!req.params.id)
+    
+    if (!idDoctor)
       return res.status(404).json({ message: "ID não encontrado" });
 
     res.status(204).json();

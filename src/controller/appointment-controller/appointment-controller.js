@@ -8,7 +8,7 @@ const appointment = async (req, res) => {
       patientId: req.body.patientId,
       doctorId: req.body.doctorId,
     };
-    if (!newAppointment)
+    if (!newAppointment.patientId || !newAppointment.doctorId)
       return res.status(400).json({ message: "IDs obrigatórios" });
 
     const appointment = await Appointment.create(newAppointment);
