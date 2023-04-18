@@ -16,10 +16,10 @@ const schema = yup.object().shape({
     .required("CRM obrigatório"),
   specialization: yup
     .string()
-    .required("informe sua profissão(especialidade)"),
+    .required("Informe sua profissão(especialidade)"),
   system_status: yup
     .string()
-    .required("Informe se o medico esta ativo ou inativo"),
+    .required("Informe se o médico esta ativo ou inativo"),
 });
 
 const doctorSecure = (req, res, next) => {

@@ -10,7 +10,7 @@ const schema = yup.object().shape({
     .required("Data de nascimento obrigatória"),
   emergency_phone: yup
     .string()
-    .required("Por favor informe o contato de emergencia"),
+    .required("Por favor informe o contato de emergência"),
 });
 
 const patientSecure = (req, res, next) => {

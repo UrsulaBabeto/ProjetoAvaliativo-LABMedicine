@@ -4,7 +4,7 @@ const addDoctor = async (req, res) => {
   try {
     if(!req.body.cpf) return  res.status(400).json({ message: "CPF obrigatório" });
     const doctorDb = await Doctor.findOne({ where: { cpf: req.body.cpf } });
-    if (doctorDb) return res.status(409).json({ message: "CPF ja cadastrado" });
+    if (doctorDb) return res.status(409).json({ message: "CPF já cadastrado" });
  
     const doctor = await {
       full_name: req.body.full_name,

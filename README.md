@@ -927,6 +927,7 @@ app.listen(process.env.PORT_URL, () => console.log("server on"));
 - Acrescentar mais entidades e seus respectivos relacionamentos;
 - Atrelar o setor de enfermagem com paciente e medico;
 - Criar um sistema de agendamento de consultas/procedimentos;
+- Permitir que o mesmo médico e o mesmo paciente possam interagir mais de uma vez 
 
 ## Contatos:
 

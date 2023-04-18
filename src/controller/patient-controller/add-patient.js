@@ -9,7 +9,7 @@ const addPatient = async (req, res) => {
         },
       });
   
-      if (patientDb) return res.status(409).json({ message: "CPF ja cadastrado" });
+      if (patientDb) return res.status(409).json({ message: "CPF já cadastrado" });
 
     const patient = await {
       full_name: req.body.full_name,

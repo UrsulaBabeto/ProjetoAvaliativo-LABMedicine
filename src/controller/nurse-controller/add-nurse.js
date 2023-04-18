@@ -4,7 +4,7 @@ const addNurse = async (req, res) => {
   try {
     if(!req.body.cpf) return  res.status(400).json({ message: "CPF obrigatório" });
     const nurseDb = await Nurse.findOne({ where: { cpf: req.body.cpf } });
-    if (nurseDb) return res.status(409).json({ message: "CPF ja cadastrado" });
+    if (nurseDb) return res.status(409).json({ message: "CPF já cadastrado" });
     const nurse = await {
       full_name: req.body.full_name,
       gender: req.body.gender,

@@ -12,7 +12,7 @@ const schema = yup.object().shape({
     .required("Instituição de Ensino obrigatória"),
   coren_uf: yup
     .string()
-    .required("CRM obrigatório"),
+    .required("Coren obrigatório"),
     cpf: yup
     .string(),
 
