@@ -1,11 +1,11 @@
 const { Sequelize } = require("sequelize");
+
 const connection = require("../connection/connection");
+
 const Doctor = require("./doctor-model");
 const Patient = require("./patient-model");
 
-const Appointment = connection.define(
-  "appointments",
-  {
+const Appointment = connection.define("appointments", {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -21,10 +21,9 @@ const Appointment = connection.define(
       allowNull: false,
     },  
   },
-  { timestamps: false }
 );
 
-Appointment.hasOne(Patient, { foreignKey: 'patientId' });
-Appointment.hasOne(Doctor, { foreignKey: 'doctorId' }); 
+Appointment.belongsTo(Patient, { foreignKey: 'patientId' });
+Appointment.belongsTo(Doctor, { foreignKey: 'doctorId' });  
 
 module.exports = Appointment;

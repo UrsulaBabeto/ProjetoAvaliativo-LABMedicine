@@ -1,7 +1,6 @@
 const { Sequelize } = require("sequelize");
 
 const connection = require("../connection/connection");
-const Appointment = require("./appointment-model");
 
 const Doctor = connection.define("doctor", {
   id: {
@@ -57,9 +56,6 @@ const Doctor = connection.define("doctor", {
     defaultValue: 0,
   },
 },
-{ timestamps: false }
 );
-
-//Doctor.belongsToMany(require("./patient-model"), { through: Appointment });
 
 module.exports = Doctor;
